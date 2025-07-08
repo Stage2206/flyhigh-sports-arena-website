@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fly High Sports Arena</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: #1a1a1a;
+      padding: 15px 0;
+      color: #fff;
+      /*
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    /*
+    .logo {
+      height: 60px;
+      background: #00b894;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    */
+    
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+    .logo img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header-title {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .header-title h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .header-title p {
+      margin: 0;
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-buttons a {
+      font-size: 18px;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .social-buttons a:hover {
+      background: #00b894;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                  url('images/turf-hero.jpg') no-repeat center center/cover;
+      color: white;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-content p {
+      font-size: 1.3em;
+      margin-bottom: 25px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      font-size: 1.1em;
+    }
+
+    .btn-whatsapp:hover {
+      background: #128C7E;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 40px 0;
+    }
+
+    .section:nth-child(even) {
+      background: #fff;
+    }
+
+    .section h2 {
+      color: #1a1a1a;
+      margin-bottom: 30px;
+      font-size: 2.2em;
+      text-align: center;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: #00b894;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .about-text {
+      font-size: 1.1em;
+    }
+
+    .features-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-left: 5px solid #00b894;
+    }
+
+    .features-card h3 {
+      color: #1a1a1a;
+      margin-bottom: 20px;
+      font-size: 1.3em;
+    }
+
+    .features-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features-card li {
+      padding: 8px 0;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .features-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #00b894;
+      font-weight: bold;
+    }
+
+    /* Booking Section */
+    .booking-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .pricing-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-left: 5px solid #00b894;
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .pricing-card h3 {
+      color: #1a1a1a;
+      margin-bottom: 20px;
+      font-size: 1.3em;
+    }
+
+    .pricing-highlight {
+      background: #00b894;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    /*.gallery-item {
+      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+      height: 220px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }*/
+
+    /*.gallery-item:hover {
+      transform: scale(1.05);
+    }*/
+
+    .gallery-item {
+      padding: 0;
+      background: none;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    /*.gallery-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    }*/
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-left: 5px solid #00b894;
+    }
+
+    .contact-card h3 {
+      color: #1a1a1a;
+      margin-bottom: 20px;
+      font-size: 1.3em;
+    }
+
+    .contact-card p {
+      margin: 10px 0;
+    }
+
+    .contact-card a {
+      color: #00b894;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    .map-container {
+      grid-column: 1 / -1;
+      margin-top: 30px;
+      height: 300px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 1.1em;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-section h3 {
+      color: #00b894;
+      margin-bottom: 15px;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+
+    .footer-section a:hover {
+      color: #00b894;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      color: #999;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header .container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .header-title {
+        margin-left: 0;
+      }
+
+      .hero {
+        height: 300px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5em;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .btn-whatsapp {
+        padding: 12px 20px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.jpg" alt="Fly High Logo">
+      </div>
+      <div class="header-title">
+        <h1>Fly High Sports Arena</h1>
+        <p>Trichy's Premier Football Turf • Open 24/7</p>
+      </div>
+      <div class="social-buttons">
+        <a href="https://instagram.com/flyhigh_sportsarena" target="_blank" title="Instagram">📸</a>
+        <a href="mailto:fhsportsarena@gmail.com" title="Email">✉️</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Play Your Best Game</h1>
+      <p>Eco-Friendly 5-a-Side Football Turf • Professional Grade • 24 Hours Open</p>
+      <a href="https://wa.me/9600662240" class="btn-whatsapp" target="_blank">📲 Book Now on WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section">
+    <div class="container">
+      <h2>About Fly High Sports Arena</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p><strong>Fly High Sports Arena</strong> is Trichy’s premier destination for 5-a-side football, nestled conveniently in the Morais city. Designed with passion and purpose, our eco-friendly turf is ideal for everything from competitive football matches and intense training sessions to friendly weekend games and corporate tournaments.</p>
+          
+          <p>Our facility features <strong>professional-grade artificial turf</strong> that ensures optimal performance and player safety in all weather conditions.</p>
+          
+          <p>We’re proud to be one of the few arenas in Trichy that operate <strong>24/7</strong>, making it easy for working professionals, students, and night owls to find their perfect playing slot. The turf is fully equipped with <strong>high-intensity LED floodlights</strong> that simulate daylight even in the darkest hours, ensuring uninterrupted play.</p>
+          
+          <p>Beyond the field, Fly High Sports Arena offers a range of modern amenities that enhance your overall experience:</p>
+          <ul>
+            <li>✅ Clean and well-maintained restrooms and changing rooms</li>
+            <li>✅ Spacious free parking for cars and two-wheelers</li>
+            <li>✅ Equipment rentals for shoes, balls, bibs, and more</li>
+            <li>✅ 24/7 on-site staff and security</li>
+            <li>✅ First-aid facilities to handle minor injuries or emergencies</li>
+          </ul>
+          <!--
+          <p>We are deeply committed to <strong>sustainable sports management</strong>. From energy-efficient lighting to water-conscious maintenance routines, our practices are designed with the environment in mind — because we believe playing responsibly is just as important as playing passionately.</p>
+          -->
+          <p>Whether you're booking for regular training, a tournament, or just a casual weekend game with friends, <strong>Fly High Sports Arena</strong> offers an unmatched football experience in a professional yet welcoming environment.</p>
+        </div>
+        <div class="features-card">
+          <h3>🌟 Our Premium Features</h3>
+          <ul>
+            <li>Professional 5-a-side artificial turf</li>
+            <li>LED floodlights for night matches</li>
+            <li>Changing rooms and washrooms</li>
+            <li>Free parking space</li>
+            <li>Equipment rental available</li>
+            <li>24/7 security</li>
+            <li>Eco-friendly maintenance</li>
+            <li>First aid facilities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="section">
+    <div class="container">
+      <h2>Booking & Pricing</h2>
+      <div class="booking-cards">
+        <div class="pricing-card">
+          <h3>⏰ Timings & Rates</h3>
+          <p><strong>Open:</strong> 24 Hours Daily</p>
+          <div class="pricing-highlight">
+            Morning Slot (6 AM - 6 PM)<br>
+            ₹1,000/hour
+          </div>
+          <div class="pricing-highlight">
+            Evening Slot (6 PM - 6 AM)<br>
+            ₹1,200/hour
+          </div>
+        </div>
+
+        <div class="pricing-card">
+          <h3>📋 How to Book</h3>
+          <p>
+            Booking is quick and easy! Simply WhatsApp us with your preferred date, time slot, and duration. 
+            We'll confirm your booking instantly.
+          </p>
+          <div style="text-align: center; margin-top: 20px;">
+            <a class="btn-whatsapp" href="https://wa.me/919600662240?text=Hi! I want to book the turf for" target="_blank">📲 Book via WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="pricing-card">
+          <h3>💳 Payment Options</h3>
+          <p><strong>We Accept:</strong></p>
+          <ul style="list-style: none; padding: 0;">
+            <li>💰 Cash payments</li>
+            <li>📱 UPI transfers</li>
+            <li>💳 Card payments</li>
+            <li>🏦 Bank transfers</li>
+          </ul>
+          <p><strong>Note:</strong> Advance booking requires 50% payment to confirm your slot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p style="text-align: center; font-size: 1.1em; margin-bottom: 40px;">
+        Explore our turf and the exciting matches we've hosted!
+      </p>
+      
+      <!--<div class="gallery-grid">
+        <div class="gallery-item">🏟️ Main Turf View</div>
+        <div class="gallery-item">⚽ Match in Progress</div>
+        <div class="gallery-item">🌙 Night Game Setup</div>
+        <div class="gallery-item">🏆 Tournament Finals</div>
+        <div class="gallery-item">👥 Team Celebrations</div>
+        <div class="gallery-item">🚗 Parking Area</div>
+      </div>-->
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/turf-main.jpg" alt="Main Turf">
+      </div>
+      <div class="gallery-item">
+        <img src="images/match.jpg" alt="Match in Progress">
+      </div>
+      <div class="gallery-item">
+        <img src="images/night.jpg" alt="Night Game">
+      </div>
+      <div class="gallery-item">
+        <img src="images/finals.jpg" alt="Tournament Finals">
+      </div>
+      <div class="gallery-item">
+        <img src="images/team.jpg" alt="Team Celebrations">
+      </div>
+      <div class="gallery-item">
+        <img src="images/coaching.jpg" alt="Coaching">
+      </div>
+    </div>
+
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://instagram.com/flyhigh_sportsarena" target="_blank" class="btn-whatsapp">
+          📸 View More on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weather Section -->
+  <section class="section">
+    <div class="container">
+    <h2>🌤️ Live Weather at Our Turf</h2>
+      <div style="text-align: center; overflow: hidden; max-width: 100%;">
+        <a class="weatherwidget-io" 
+          href="https://forecast7.com/en/10d7978d70/tiruchirappalli/" 
+          data-label_1="TRICHY" 
+          data-label_2="WEATHER" 
+          data-theme="original"
+          data-basecolor="#00b894" 
+          data-accent="#ffffff" 
+          data-textcolor="#ffffff"
+          >TRICHY WEATHER</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    !function(d,s,id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if(!d.getElementById(id)){
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://weatherwidget.io/js/widget.min.js';
+        fjs.parentNode.insertBefore(js,fjs);
+      }
+    }(document,'script','weatherwidget-io-js');
+  </script>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>📞 Get in Touch</h3>
+          <p><strong>Phone:</strong> <a href="tel:+919600662240">+91 919600 662240</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919600662240">+91 98765 43210</a></p>
+          <p><strong>Email:</strong> <a href="mailto:fhsportsarena@gmail.com">fhsportsarena@gmail.com</a></p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/flyhigh_sportsarena" target="_blank">@flyhigh_sportsarena</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3>📍 Find Us</h3>
+          <p><strong>Address:</strong> Plot 334, Morais City Rd, opposite Morais Clarion, 9th sector, Trichy - 620007</p>
+          <p><strong>Landmarks:</strong> Located near the Tiruchirappalli International Airport </p>
+          <p><strong>Parking:</strong> Free parking available on-site</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a class="weatherwidget-io" href="https://forecast7.com/en/10d8210d92/trichy/" data-label_1="TRICHY" data-label_2="WEATHER" 
+          data-theme="original" >TRICHY WEATHER</a>
+        </div>
+
+        <!--<div class="map-container">
+          🗺️ Google Maps Location
+          <br><small>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.7266543306146!2d78.72049257408722!3d10.755537359580641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa8b1b94e62111%3A0x8a61dad847190f0c!2sFly%20High%20Sports%20Arena%20Turf!5e0!3m2!1sen!2sin!4v1751795008529!5m2!1sen!2sin" 
+            width="1200" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </small>
+        </div>-->
+        <div class="map-container" style="height: 350px; padding: 0;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.7266543306146!2d78.72049257408722!3d10.755537359580641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa8b1b94e62111%3A0x8a61dad847190f0c!2sFly%20High%20Sports%20Arena%20Turf!5e0!3m2!1sen!2sin!4v1751795008529!5m2!1sen!2sin" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+   <script src="https://static.elfsight.com/platform/platform.js" async></script>
+   <div class="elfsight-app-45334a9c-1926-4e76-b198-7364b65bc1cc" data-elfsight-app-lazy></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Fly High Sports Arena</h3>
+          <p>Your premier destination for 5-a-side football in Trichy. Professional turf, 24/7 access, and eco-friendly operations.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="https://wa.me/919600662240">Book Now</a></p>
+          <p><a href="tel:+919600662240">Call Us</a></p>
+          <p><a href="mailto:fhsportsarena@gmail.com">Email Us</a></p>
+          <p><a href="https://instagram.com/flyhigh_sportsarena
+">Follow Us</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Operating Hours</h3>
+          <p>24 Hours Daily</p>
+          <p>Morning: ₹1,000/hour</p>
+          <p>Evening: ₹1,200/hour</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Fly High Sports Arena | Designed with ❤️ for Sports Lovers</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for better UX
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add smooth hover effects to gallery items
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.05)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
+
+      // Add smooth hover effects to pricing cards
+      const pricingCards = document.querySelectorAll('.pricing-card');
+      pricingCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);js.id=id;
+          js.src='https://weatherwidget.io/js/widget.min.js';
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }(document,'script','weatherwidget-io-js');
+    });
+  </script>
+</body>
+</html>
